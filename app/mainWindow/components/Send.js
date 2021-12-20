@@ -568,6 +568,30 @@ export default class Send extends Component<Props, State> {
                 </label>
               </div>
               <div className="field">
+                <div className="control">
+                  <label className={`label ${textColor}`} htmlFor="amount">
+                    {il8n.amount_to_send}
+                    <input
+                      className="input is-large"
+                      type="text"
+                      placeholder={
+                        sendAll
+                          ? 'Sending entire wallet balance '
+                          : `How much to send (eg. ${
+                              displayCurrency === 'fiat'
+                                ? exampleAmount
+                                : '100 SNW'
+                            })`
+                      }
+                      value={enteredAmount}
+                      onChange={this.handleAmountChange}
+                      id="amount"
+                      disabled={sendAll}
+                    />
+                  </label>
+                </div>
+              </div>
+              <div className="field">
                 <label className={`label ${textColor}`} htmlFor="paymentid">
                   {il8n.payment_id}
                   <div className="control">
